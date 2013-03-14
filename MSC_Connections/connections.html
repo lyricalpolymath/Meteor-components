@@ -1,0 +1,62 @@
+<head>
+  <title>MSC_Connections</title>
+</head>
+
+<body>
+  {{> connectionsTemplate}}
+</body>
+
+<template name="connectionsTemplate">
+	<div class="container span10">
+  		<h2>CONNECTIONS COMPONENT FOR METEOR</h2>
+   		<p>version: 20130314.1740 / for meteor 0.5.8<br>
+   		by beltran berrocal 	/  twitter: @lyricalpolymath<br>
+   		git download: <a href="https://github.com/lyricalpolymath/Meteor-components">https://github.com/lyricalpolymath/Meteor-components</a><br>
+   		online example: <a href="http://mcsconnections.meteor.com">mcsconnections.meteor.com</a><br>
+		</p>
+
+   		<h4>WHAT IS IT</h4>
+   		<p>This is a Meteor Client-Server component that allows to display the number of current clients connected to the page
+   		if the viewer is a user it will use it's id to store it
+   		otherwise it will create a temporary id "temp_ljhaihoaiasdqwq" 
+   		that is used to calculate how many are actually users and how many are non-logged in or registered users.<br>
+   		It's still hackish and you will see some delays in the actual data: some users will disappear after a while, usually because they have loggedin and the server still need to clear the old id
+   		</p>
+   		<h4>STYLE</h4>
+   		<p>you can style the .currViewers .currUsers classes in your css</p>
+   		
+   		<h4>DEPENDENCIES</h4>
+   		<p>requires TWITTER BOOSTRAP and JQUERY to correctly style the helper and the tooltip, but it works even without it
+   		if you want the sample html to work you should also add the packages accounts-base accounts-passwords accounts-ui
+   		</p>
+   		<h4>CREDITS</h4>
+   		<p>based on the meteor.com example parties for the keepalive concept - but improved to account for many bugs of the accounts-ui package	</p>
+	
+	<hr>
+	
+	<div class="row">
+	<div class="span8">
+		<h4>HandleBars Custom Helpers and results </h4> 
+		<table class="table">
+		<thead>
+		<tr><th> 	Handlebar Helper </th><th>  what it looks like (roll over for tooltip)</th></tr>
+		</thead>
+		<tr><td> &#123;{ ALL_VIEWERS &#125;}   	   			</td><td> {{ALL_VIEWERS}}        	  </td></tr>
+		<tr><td> &#123;{ ONLY_USERS &#125;} 	   			</td><td> {{ONLY_USERS}}        	  </td></tr>
+		<tr><td> &#123;{ VIEWERS_OF_WHICH_USERS &#125;} 	</td><td> {{VIEWERS_OF_WHICH_USERS}}  </td></tr>
+		<tr><td> &#123;{ VIEWERS_AND_USERS &#125;} 			</td><td> {{VIEWERS_AND_USERS}}  	  </td></tr>
+		</table>
+	</div>
+	<div class="span2">{{loginButtons align="right"}}</div>
+	</div>
+	
+	<hr>
+	
+	<!-- 
+	only for dev purposes:
+	{{traceViewer}}  &nbsp&nbsp&nbsp
+  	<input type="button" value="stop client timer" /> -->
+	</div>
+</template>
+
+
